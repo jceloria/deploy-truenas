@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 """
-Import and activate a SSL/TLS certificate into FreeNAS 11.1 or later
-Uses the FreeNAS API to make the change, so everything's properly saved in the config
+Import and activate a SSL/TLS certificate into FreeNAS/TrueNAS 11.1 or later
+Uses the FreeNAS/TrueNAS API to make the change, so everything's properly saved in the config
 database and captured in a backup.
 
 Requires paths to the cert (including the any intermediate CA certs) and private key,
-and username, password, and FQDN of your FreeNAS system.
+and username, password, and FQDN of your FreeNAS/TrueNAS system.
 
 The config file contains your root password or API key, so it should only be readable by
 root.  Your private key should also only be readable by root, so this script must run
@@ -29,7 +29,7 @@ from datetime import datetime, timedelta
 from urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
-parser = argparse.ArgumentParser(description='Import and activate a SSL/TLS certificate into FreeNAS.')
+parser = argparse.ArgumentParser(description='Import and activate a SSL/TLS certificate into TrueNAS.')
 parser.add_argument('-c', '--config', default=(os.path.join(os.path.dirname(os.path.realpath(__file__)),
                     'deploy_config')), help='Path to config file, defaults to deploy_config.')
 args = parser.parse_args()
