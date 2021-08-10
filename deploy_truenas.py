@@ -60,7 +60,7 @@ FTP_ENABLED = deploy.getboolean('ftp_enabled', fallback=False)
 WEBDAV_ENABLED = deploy.getboolean('webdav_enabled', fallback=False)
 CERT_BASE_NAME = deploy.get('cert_base_name', DOMAIN_NAME)
 now = datetime.now()
-cert = re.sub(r'\W+', '_', CERT_BASE_NAME)
+cert = '{}-{}-{}'.format(re.sub(r'\W+', '_', CERT_BASE_NAME), now.year, now.strftime('%m-%d'))
 
 
 # Set some general request params
